@@ -37,7 +37,6 @@ body {
   height: 100vh;
 }
 
-/* Header  */
 .header {
   grid-area: header;
   height: 60px;
@@ -51,9 +50,7 @@ body {
 .menu-icon {
   display: none;
 }
-/* End Header  */
 
-/* Sidebar  */
 #sidebar {
   grid-area: sidebar;
   height: 100%;
@@ -104,32 +101,17 @@ body {
 .sidebar-responsive {
   display: inline !important;
   position: absolute;
-  /*
-    we want the z-index of the sidebar higher so that
-    the charts are not showing over the sidebar 
-    on small screens
-  */
+  
   z-index: 12 !important;
 }
 
-/* End Sidebar  */
 
-
-/* Main  */  
 .main-container {
   grid-area: main;
   overflow-y: auto;
   padding: 20px 20px;
   color: rgba(255, 255, 255, 0.95);
 }
-
-/* .main-container1 {
-  margin-top: 21% !important;
-  grid-area: main;
-  overflow-y: auto;
-  padding: 20px 20px;
-  color: rgba(255, 255, 255, 0.95);
-} */
 
 .main-title {
   display: flex;
@@ -176,13 +158,6 @@ body {
 .card-inner > .card_icon {
   font-size: 25px;
 }
-
-
-
-/* End Main  */
-
-
-/* Medium <= 992px */
   
 @media screen and (max-width: 992px) {
   .App {
@@ -205,7 +180,7 @@ body {
     display: inline;
   }
 }
-/* Small <= 768px */
+
   
 @media screen and (max-width: 768px) {
   .main-cards {
@@ -216,8 +191,6 @@ body {
 
   
 }
-
-/* Extra Small <= 576px */
 
 @media screen and (max-width: 576px) {
   .hedaer-left {

@@ -1,7 +1,8 @@
-/* Products Management */
+
 .main-container {
   padding: 20px;
 }
+
 
 .header {
   margin-bottom: 20px;
@@ -12,9 +13,11 @@
   margin: 0;
 }
 
+
 .products-container {
   position: relative;
 }
+
 
 .add-product-btn {
   padding: 10px 20px;
@@ -26,6 +29,7 @@
   cursor: pointer;
 }
 
+
 .product-table {
   width: 100%;
   border-collapse: collapse;
@@ -34,7 +38,7 @@
 
 .product-table th,
 .product-table td {
-  padding: 0%;
+  padding: 1%;
   border-bottom: 1px solid #ddd;
   text-align: left;
 }
@@ -43,6 +47,15 @@
   background-color: #147de7;
   font-weight: bold;
 }
+
+
+@media screen and (max-width: 768px) {
+  .product-table th,
+  .product-table td {
+    font-size: 10px; 
+  }
+}
+
 
 .modal {
   display: flex;

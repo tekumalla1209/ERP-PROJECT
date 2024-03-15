@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 import OrdersView from './Components/OrdersView';
 import Products from './Components/Products';
 import Scheduler from './Components/Scheduler';
-import Dashboard from './Components/DashBoarddd'; // Update import
+import Dashboard from './Components/DashBoarddd'; 
 
 function App() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
@@ -18,9 +18,7 @@ function App() {
     setOpenSidebarToggle(!openSidebarToggle);
   }
 
-  // Fetch product count and order count on component mount
   useEffect(() => {
-    // Simulate fetching products and orders from backend
     const fetchProducts = async () => {
       try {
         const data = JSON.parse(localStorage.getItem('products')) || [];

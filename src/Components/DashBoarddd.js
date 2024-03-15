@@ -33,7 +33,6 @@ function Dashboard({ productCount, orderCount }) {
                 <div className='card'>
                     <div className='card-inner'>
                         <h3>ALERTS</h3>
-                        {/* Logic for alerts count */}
                     </div>
                     <h1>0</h1>
                 </div>

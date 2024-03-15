@@ -1,7 +1,6 @@
 import React from 'react'
 import 
-{BsCart3, BsGrid1X2Fill, BsFillArchiveFill, 
-  BsListCheck, BsMenuButtonWideFill, BsFillGearFill, BsBagFill, BsBorderAll}
+{BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsBagFill, BsBorderAll}
  from 'react-icons/bs'
 
 function Sidebar({openSidebarToggle, OpenSidebar}) {
@@ -35,11 +34,6 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                     <BsBorderAll className='icon'/> CalendarView
                 </a>
             </li>
-            {/* <li className='sidebar-list-item'>
-                <a href="">
-                    <BsFillGearFill className='icon'/> Settings
-                </a>
-            </li> */}
         </ul>
     </aside>
   )

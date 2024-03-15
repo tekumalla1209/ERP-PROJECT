@@ -7,9 +7,8 @@ import './Scheduler.css';
 const localizer = momentLocalizer(moment);
 
 const Scheduler = () => {
-  // State to store orders
   const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true);
 
   const largeScreenStyle = {
     height: '100%',
@@ -27,43 +26,39 @@ const Scheduler = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsLargeScreen(window.innerWidth > 768); // Adjust the breakpoint as needed
+      setIsLargeScreen(window.innerWidth > 768); 
     };
 
-    handleResize(); // Check screen size initially
-    window.addEventListener('resize', handleResize); // Listen for resize events
+    handleResize(); 
+    window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize); // Clean up
+    return () => window.removeEventListener('resize', handleResize); 
   }, []);
 
 
-
-  // Fetch orders from local storage when component mounts
   useEffect(() => {
     const storedOrders = JSON.parse(localStorage.getItem('orders')) || [];
     setOrders(storedOrders);
-    setLoading(false); // Set loading to false after orders are fetched
+    setLoading(false); 
   }, []);
 
-  // Map orders to calendar events with custom onClick handlers
+  
   const events = orders.map(order => ({
     id: order.order_id,
-    title: order.order_id, // Assuming customerName is the title
+    title: order.order_id, 
     start: new Date(order.start),
     end: new Date(order.end),
-    onClick: () => handleEventClick(order.start) // Pass the start date to the click handler
+    onClick: () => handleEventClick(order.start) 
   }));
 
-  // Handle event click to scroll to the day section
   const handleEventClick = (date) => {
-    const formattedDate = moment(date).format('YYYY-MM-DD'); // Format the date
-    const daySection = document.getElementById(formattedDate); // Get the corresponding day section
+    const formattedDate = moment(date).format('YYYY-MM-DD');
+    const daySection = document.getElementById(formattedDate); 
     if (daySection) {
-      daySection.scrollIntoView({ behavior: 'smooth' }); // Scroll to the day section
+      daySection.scrollIntoView({ behavior: 'smooth' }); 
     }
   };
 
-  // If loading, show a loading indicator
   if (loading) {
     return <div>Loading...</div>;
   }

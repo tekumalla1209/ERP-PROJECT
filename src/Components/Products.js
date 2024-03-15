@@ -70,7 +70,6 @@ function Products() {
 
   const handleDeleteProduct = (productToDelete) => {
     const updatedProducts = products.filter(product => product.id !== productToDelete.id);
-    // Reassign IDs to products after deletion
     const updatedProductsIds = updatedProducts.map((product, index) => ({
       ...product,
       id: index + 1
@@ -116,7 +115,7 @@ function Products() {
         </table>
       </div>
 
-      {/* Add Product Modal */}
+      
       {isAddModalOpen && (
         <div className="modal">
           <div className="modal-content">
@@ -145,7 +144,7 @@ function Products() {
         </div>
       )}
 
-      {/* Edit Product Modal */}
+      
       {isEditModalOpen && (
         <div className="modal">
           <div className="modal-content">

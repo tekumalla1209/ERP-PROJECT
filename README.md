@@ -68,3 +68,41 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Overview
+This web application is built using React.js and provides functionalities for managing products, orders, and schedules. It includes components for a dashboard, orders management, products management, scheduler, header, and sidebar.
+
+## Folder Structure
+- Components: Contains React components for different sections of the application.
+- CSS: Includes CSS files for styling components and layout.
+
+## Components
+- **Dashboard:** Displays summary cards for products, orders, and a link to the calendar view.
+- **OrdersView:** Shows a table of orders with details like order ID, customer name, order date, and status.
+- **Products:** Manages products including adding, editing, and deleting products. Displays products in a table format.
+- **Scheduler:** Utilizes the `react-big-calendar` library to display a calendar view of orders with the ability to click on events for more details.
+- **Header:** Provides navigation icons like search, notifications, and user profile.
+- **Sidebar:** Contains links for navigation to different sections of the application.
+
+## Technical Aspects
+- **React.js:** Frontend built using React.js library.
+- **React Router:** Used for client-side routing.
+- **useState and useEffect Hooks:** For managing state and performing side effects.
+- **CSS:** Styled using CSS for layout, colors, and responsiveness.
+- **Local Storage:** Data storage using the browser's local storage API.
+- **Icons:** Utilizes icons from the `react-icons` library.
+- **Responsive Design:** CSS media queries for responsiveness.
+- **Testing:** Basic setup using Jest and React Testing Library.
+
+## Usage
+1. Clone the repository locally.
+2. Install dependencies using `npm install` or `yarn install`.
+3. Start the development server with `npm start` or `yarn start`.
+4. Open the application in a web browser and navigate through different views using the links in the sidebar or header.
+5. Interact with the dashboard, orders view, products management, and scheduler to view and manage data.
+
+## Additional Notes
+- Ensure Node.js and npm or yarn are installed on your system.
+- Check `package.json` for any additional dependencies or scripts.
+- Adjust code or configurations based on specific requirements or environment.

@@ -33,7 +33,7 @@ const OrdersView = () => {
     setOrders(generatedOrders);
   }, []);
 
-  // Function to format date as YYYY-MM-DD
+  
   const formatDate = (date) => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -69,7 +69,6 @@ const OrdersView = () => {
         </table>
       </div>
       <div className="footer">
-        {/* Footer content */}
       </div>
     </main>
   );
