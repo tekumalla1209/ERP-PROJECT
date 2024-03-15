@@ -19,8 +19,8 @@ const OrdersView = () => {
 
       today8.setDate(currentDay2 + i);
       var newOrder = {
-        id: i + 1,
-        customerName: `Order - ${i + 1}`,
+        order_id: `Order - ${i + 1}`,
+        customerName: `Customer - ${i + 1}`,
         orderDate: formatDate(today),
         start: today,
         end: today8,
@@ -58,8 +58,8 @@ const OrdersView = () => {
           </thead>
           <tbody>
             {orders.map(order => (
-              <tr key={order.id}>
-                <td>{order.id}</td>
+              <tr key={order.order_id}>
+                <td>{order.order_id}</td>
                 <td>{order.customerName}</td>
                 <td>{order.orderDate}</td>
                 <td>{order.status}</td>

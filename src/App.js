@@ -5,7 +5,6 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import OrdersView from './Components/OrdersView';
 import Products from './Components/Products';
-import CalendarView from './Components/CalendarView';
 import Scheduler from './Components/Scheduler';
 import Dashboard from './Components/DashBoarddd'; // Update import
 
@@ -32,13 +31,12 @@ function App() {
     };
 
     const fetchOrders = () => {
-      // Simulate fetching orders from backend or another source
-      const data = [
-        { id: 1, customerName: 'John Doe', orderDate: '2022-01-01', status: 'Processing' },
-        { id: 2, customerName: 'Jane Smith', orderDate: '2022-01-02', status: 'Shipped' }
-        // Add more orders as needed
-      ];
-      setOrders(data);
+      try {
+        const data = JSON.parse(localStorage.getItem('orders')) || [];
+        setOrders(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
     };
 
     fetchProducts();

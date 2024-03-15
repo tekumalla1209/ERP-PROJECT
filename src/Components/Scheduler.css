@@ -41,3 +41,9 @@
 .rbc-event-label {
   color: #fff; /* Change text color for event labels */
 }
+
+/* Media query for mobile screens */
+/* @media screen and (max-width: 768px) {
+  .header {
+    width: 54%; /* Adjusted width for mobile screens */
+ 
