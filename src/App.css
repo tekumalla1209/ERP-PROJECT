@@ -197,3 +197,17 @@ body {
     display: none;
   }
 }
+
+.main-cards .card .card-inner h3{
+  color: white;
+}
+
+.main-cards .card a{
+  text-decoration: none !important;
+}
+
+.main-cards a{
+  text-decoration: none !important;
+}
+
+

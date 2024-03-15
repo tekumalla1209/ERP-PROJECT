@@ -19,8 +19,8 @@ const OrdersView = () => {
 
       today8.setDate(currentDay2 + i);
       var newOrder = {
-        order_id: `Order - ${i + 1}`,
-        customerName: `Customer - ${i + 1}`,
+        order_id: `Order_${i + 1}`,
+        customerName: `Customer_${i + 1}`,
         orderDate: formatDate(today),
         start: today,
         end: today8,
