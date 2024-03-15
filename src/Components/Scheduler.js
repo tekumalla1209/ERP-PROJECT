@@ -1,26 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import './Scheduler.css';
 
 const localizer = momentLocalizer(moment);
 
-// Sample orders data
-const orders = [
-  { id: 1, title: 'Order 1', start: new Date(2024, 2, 15, 10, 0), end: new Date(2024, 2, 15, 12, 0) },
-  { id: 2, title: 'Order 2', start: new Date(2024, 2, 16, 13, 0), end: new Date(2024, 2, 16, 15, 0) },
-  // Add more orders as needed
-];
-
 const Scheduler = () => {
+  // State to store orders
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true); // Add loading state
+
+  // Fetch orders from local storage when component mounts
+  useEffect(() => {
+    const storedOrders = JSON.parse(localStorage.getItem('orders')) || [];
+    setOrders(storedOrders);
+    setLoading(false); // Set loading to false after orders are fetched
+  }, []);
+
+  // Map orders to calendar events
+  const events = orders.map(order => ({
+    id: order.id,
+    title: order.customerName, // Assuming customerName is the title
+    start: new Date(order.start),
+    end: new Date(order.end)
+  }));
+
+  // If loading, show a loading indicator
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div style={{ height: '500px' }}>
       <Calendar
         localizer={localizer}
-        events={orders}
+        events={events}
         startAccessor="start"
         endAccessor="end"
-        defaultView="week"
+        defaultView="month"
       />
     </div>
   );

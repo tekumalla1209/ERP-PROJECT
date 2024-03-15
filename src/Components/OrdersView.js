@@ -1,7 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './OrdersView.css';
 
-function OrdersView() {
+const OrdersView = () => {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+
+    let generatedOrders = [];
+    for (let i = 0; i < 20; i++) {
+      var today = new Date();
+      today.setHours(17, 0, 0, 0);
+      var today8 = new Date();
+      today8.setHours(20, 0, 0, 0);
+      let currentDay = today.getDate();
+
+      today.setDate(currentDay + i);
+      let currentDay2 = today8.getDate();
+
+      today8.setDate(currentDay2 + i);
+      var newOrder = {
+        id: i + 1,
+        customerName: `Order - ${i + 1}`,
+        orderDate: formatDate(today),
+        start: today,
+        end: today8,
+        status: i % 2 === 0 ? 'Processing' : 'Shipped'
+      };
+      generatedOrders.push(newOrder);
+    }
+
+    localStorage.setItem('orders', JSON.stringify(generatedOrders));
+    setOrders(generatedOrders);
+  }, []);
+
+  // Function to format date as YYYY-MM-DD
+  const formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   return (
     <main className='main-container'>
       <div className="header">
@@ -15,25 +54,17 @@ function OrdersView() {
               <th>Customer Name</th>
               <th>Order Date</th>
               <th>Status</th>
-              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>500865423</td>
-              <td>Dhoni MS</td>
-              <td>2024-03-01</td>
-              <td>Processing</td>
-              
-            </tr>
-            <tr>
-              <td>500865428</td>
-              <td>Virat</td>
-              <td>2024-03-05</td>
-              <td>Shipped</td>
-              
-            </tr>
-            {/* Additional rows will be dynamically generated here */}
+            {orders.map(order => (
+              <tr key={order.id}>
+                <td>{order.id}</td>
+                <td>{order.customerName}</td>
+                <td>{order.orderDate}</td>
+                <td>{order.status}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -41,7 +72,7 @@ function OrdersView() {
         {/* Footer content */}
       </div>
     </main>
-  )
-}
+  );
+};
 
 export default OrdersView;
